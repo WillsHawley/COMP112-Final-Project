@@ -51,6 +51,20 @@ ggplotly(Shoulda_gone_to_California)
 ```
  - Looks like we made the wrong choice 
  
+```{r}
+#did it again
+salaries_by_college_type$start_med_sal = as.numeric(gsub("[\\$,]", "", salaries_by_college_type$`Starting Median Salary`))
+
+Atleast_we_arent_a_state_school <- salaries_by_college_type %>% 
+  ggplot() +
+  geom_boxplot(aes(x=`School Type`,y=start_med_sal)) + 
+  theme_minimal() +
+  labs(title="Starting Median Salary by School Type",
+       y="Starting Median Salary")
+
+ggplotly(Atleast_we_arent_a_state_school)
+```
+ - Starting to question my life choices
  
  
   
