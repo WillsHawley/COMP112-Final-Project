@@ -1,8 +1,9 @@
 ---
 title: "Ideas"
-author: "Wills Hawley"
+author: "Lucy, Alex, Jacob, Wills"
 date: "11/5/2019"
 output: html_document
+keep_md: yes
 ---
 ```{r}
 library(mosaicData) 
