@@ -5,7 +5,7 @@ date: "11/5/2019"
 output: html_document
 keep_md: yes
 ---
-```{r}
+```{r,echo=TRUE,include=FALSE}
 library(mosaicData) 
 library(lubridate)
 library(ggthemes)
@@ -13,6 +13,10 @@ library(tidyverse)
 library(plotly)
 library(readr)
 ```
+
+# Link to slack because we need some form of communication
+
+https://join.slack.com/t/data-science-gang/shared_invite/enQtODEzMDY5MzY4OTMxLTdmMzlhZGFiNmJlYjNmZTg2ODI1MDZhM2UyNjUzMDRlOTU1MDVjZTBlZjBhNTc1YTFjN2U5MTE2ODc0MTc4YzM
 
 Powerlifting Data
   Analyze max increases based on weight/gender
