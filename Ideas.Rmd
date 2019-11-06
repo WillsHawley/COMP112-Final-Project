@@ -4,6 +4,14 @@ author: "Wills Hawley"
 date: "11/5/2019"
 output: html_document
 ---
+```{r}
+library(mosaicData) 
+library(lubridate)
+library(ggthemes)
+library(tidyverse)
+library(plotly)
+library(readr)
+```
 
 Powerlifting Data
   Analyze max increases based on weight/gender
@@ -14,3 +22,35 @@ MMA Data
 
 NCAA BBall Data
   Do teams with more of certain type of player group (height, ethnicity) win more?
+  
+College
+  Analyze salaries by major/school location
+  https://www.kaggle.com/wsj/college-salaries 
+ 
+```{r}
+degrees_that_pay_back <- read_csv("~/Data Science Assignments/degrees-that-pay-back.csv")
+salaries_by_college_type <- read_csv("~/Data Science Assignments/salaries-by-college-type.csv")
+salaries_by_region <- read_csv("~/Data Science Assignments/salaries-by-region.csv")
+
+view(degrees_that_pay_back)
+view(salaries_by_college_type)
+view(salaries_by_region)
+```
+```{r}
+#Creates variable start_med_sal which is the starting median salary without $ and , so it can be computed as a numerical variable
+salaries_by_region$start_med_sal = as.numeric(gsub("[\\$,]", "", salaries_by_region$`Starting Median Salary`))
+
+Shoulda_gone_to_California <- salaries_by_region %>% 
+  ggplot() +
+  geom_boxplot(aes(x=Region,y=start_med_sal)) +
+  theme_minimal() +
+  labs(title="Starting Median Salary by Region",
+       y="Starting Median Salary")
+
+ggplotly(Shoulda_gone_to_California)
+```
+ - Looks like we made the wrong choice 
+ 
+ 
+ 
+  
