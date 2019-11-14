@@ -37,9 +37,9 @@ degrees_that_pay_back <- read_csv("degrees-that-pay-back.csv")
 salaries_by_college_type <- read_csv("salaries-by-college-type.csv")
 salaries_by_region <- read_csv("salaries-by-region.csv")
 
-#view(degrees_that_pay_back)
-#view(salaries_by_college_type)
-#view(salaries_by_region)
+view(degrees_that_pay_back)
+view(salaries_by_college_type)
+view(salaries_by_region)
 ```
 ```{r}
 #Creates variable start_med_sal which is the starting median salary without $ and , so it can be computed as a numerical variable
