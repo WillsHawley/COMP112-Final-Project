@@ -16,7 +16,19 @@ Spotify_Top_2018 <- read_csv("Spotify/Spotify Top 2018.csv")
 
 Spotify_Master<-Spotify_Top_2017 %>% 
   bind_rows(Spotify_Top_2018)
+view(Spotify_Master)
 ```
+What makes a hit song?
 
 ##### Would it be worth comparing 2017 v. 2018 songs as well for our analysis?
+```{r}
+Spotify_Master %>% 
+  ggplot() +
+  geom_histogram(aes(x=tempo),binwidth=12)
+```
+```{r}
+Spotify_Master %>% 
+  ggplot() +
+  geom_histogram() +
+```
 
