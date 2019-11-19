@@ -29,6 +29,30 @@ Spotify_Master %>%
 ```{r}
 Spotify_Master %>% 
   ggplot() +
-  geom_histogram() +
+  geom_histogram(aes(x=key),binwidth=1) +
+  labs(y="keys",title="Master")
+Spotify_Top_2017 %>% 
+  ggplot() +
+  geom_histogram(aes(x=key),binwidth=1) +
+  labs(x="Musical Key",title=2017) +
+  theme_minimal()
+Spotify_Top_2018 %>% 
+  ggplot() +
+  geom_histogram(aes(x=key),binwidth=1) +
+  labs(x="Key",title=2018) +
+  theme_minimal()
+```
+```{r}
+Artist_Count<-Spotify_Master %>% 
+  group_by(artists) %>% 
+  count() %>% 
+  arrange(desc(n))
+Artist_Count %>% 
+  ggplot() +
+  geom_histogram(aes(x=n),binwidth=1) +
+  theme_minimal() +
+  labs(x="Number of Top 100 Songs 2017-2018 by Artist",y="Count")
+Artist_Count %>% 
+  top_n(10)
 ```
 
