@@ -1,0 +1,19 @@
+---
+title: "Alex's Stuff"
+output: html_document
+---
+
+```{r libraries}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+```
+
+What makes a hit song?
+-tempo
+-duration
+-valence: high = positive, happy, cheerful; 
+          low = sad, angry, depressed
+-key
+-danceability? 
