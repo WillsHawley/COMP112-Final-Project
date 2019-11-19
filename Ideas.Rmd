@@ -31,45 +31,7 @@ NCAA BBall Data
 College
   Analyze salaries by major/school location
   https://www.kaggle.com/wsj/college-salaries 
- 
-```{r}
-degrees_that_pay_back <- read_csv("degrees-that-pay-back.csv")
-salaries_by_college_type <- read_csv("salaries-by-college-type.csv")
-salaries_by_region <- read_csv("salaries-by-region.csv")
 
-view(degrees_that_pay_back)
-view(salaries_by_college_type)
-view(salaries_by_region)
-```
-```{r}
-#Creates variable start_med_sal which is the starting median salary without $ and , so it can be computed as a numerical variable
-salaries_by_region$start_med_sal = as.numeric(gsub("[\\$,]", "", salaries_by_region$`Starting Median Salary`))
-
-Shoulda_gone_to_California <- salaries_by_region %>% 
-  ggplot() +
-  geom_boxplot(aes(x=Region,y=start_med_sal)) +
-  theme_minimal() +
-  labs(title="Starting Median Salary by Region",
-       y="Starting Median Salary")
-
-ggplotly(Shoulda_gone_to_California)
-```
- - Looks like we made the wrong choice 
- 
-```{r}
-#did it again
-salaries_by_college_type$start_med_sal = as.numeric(gsub("[\\$,]", "", salaries_by_college_type$`Starting Median Salary`))
-
-Atleast_we_arent_a_state_school <- salaries_by_college_type %>% 
-  ggplot() +
-  geom_boxplot(aes(x=`School Type`,y=start_med_sal)) + 
-  theme_minimal() +
-  labs(title="Starting Median Salary by School Type",
-       y="Starting Median Salary")
-
-ggplotly(Atleast_we_arent_a_state_school)
-```
- - Starting to question my life choices
  
  
   
