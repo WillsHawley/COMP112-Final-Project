@@ -79,4 +79,12 @@ Spotify_Master %>%
   ggplot() +
   geom_histogram(aes(x=liveness))
 ```
+```{r}
+Speechiness_by_genre<-Spotify_Big %>% 
+  group_by(genre) %>% 
+  summarize(avg_speechiness=mean(speechiness))
+Speechiness_by_genre %>% 
+  ggplot() +
+  geom_boxplot(aes(x=genre,y=avg_speechiness))
+```
 
