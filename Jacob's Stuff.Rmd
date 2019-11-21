@@ -35,3 +35,18 @@ Spotify_Big %>%
   labs(x="Genre of Music", y = "Average Dancibility Ratings",
        title = "Average Dancibility Ratings For Genre")
 ```
+
+```{r}
+Spotify_Big %>%
+  group_by(genre) %>%
+  summarize(averagepopularity = mean(popularity)) %>%
+  arrange(desc(averagepopularity)) %>%
+  ggplot(aes(x=fct_reorder(genre,averagepopularity,mean),
+             y=averagepopularity)) +
+  geom_col(color = "black", fill = "green") +
+  coord_flip() +
+  theme_minimal() +
+  labs(x="Genre of Music", y = "Average Popularity",
+       title = "Average Popularity For Genre")
+```
+
