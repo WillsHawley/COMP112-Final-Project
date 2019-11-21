@@ -84,7 +84,6 @@ Spotify_Big %>%
   group_by(genre) %>% 
   summarize(avg_speechiness=mean(speechiness)) %>% 
   arrange(avg_speechiness)
-
 ```
 ```{r}
 Spotify_Big %>% 
@@ -103,6 +102,36 @@ Spotify_Big %>%
   filter(genre=="Soul") %>% 
   ggplot() +
   geom_histogram(aes(x=valence),binwidth=.03)
-Spotify
+```
+
+```{r,fig.width=9,fig.height=5}
+Spotify_Big %>% 
+  filter(genre=="Anime") %>% 
+  ggplot() +
+  geom_hex(aes(x=valence,y=popularity)) +
+  labs(title="Anime") +
+  theme_minimal()
+Spotify_Big %>% 
+  filter(genre=="R&B") %>% 
+  ggplot() +
+  geom_hex(aes(x=valence,y=popularity)) +
+  labs(title="R&B") +
+  theme_minimal()
+```
+```{r,fig.width=7,fig.height=5}
+Spotify_Big %>% 
+  filter(genre=="Alternative") %>% 
+  ggplot() +
+  geom_hex(aes(x=valence,y=popularity)) +
+  labs(title="Alternative") +
+  theme_minimal() 
+```
+```{r,fig.width=10}
+Spotify_Big %>% 
+  ggplot() +
+  geom_histogram(aes(x=valence),binwidth=0.1) +
+  facet_wrap(~genre) +
+  theme_minimal() +
+  labs(x="Valence",y="Count",title="Distribution of Valence by genre")
 ```
 
