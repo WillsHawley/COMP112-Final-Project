@@ -72,6 +72,11 @@ Spotify_Master %>%
   geom_histogram(aes(x=loudness))
 ```
 ```{r}
-
+Spotify_Big %>% 
+  ggplot() +
+  geom_histogram(aes(x=liveness))
+Spotify_Master %>% 
+  ggplot() +
+  geom_histogram(aes(x=liveness))
 ```
 
