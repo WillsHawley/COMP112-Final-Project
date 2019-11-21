@@ -18,23 +18,10 @@ library(readr)
 
 https://join.slack.com/t/data-science-gang/shared_invite/enQtODEzMDY5MzY4OTMxLTdmMzlhZGFiNmJlYjNmZTg2ODI1MDZhM2UyNjUzMDRlOTU1MDVjZTBlZjBhNTc1YTFjN2U5MTE2ODc0MTc4YzM
 
-Powerlifting Data
-  Analyze max increases based on weight/gender
-
-MMA Data
-  Analyze weight class head to head
-  Do differences in weight change how victorious a person is?
-
-NCAA BBall Data
-  Do teams with more of certain type of player group (height, ethnicity) win more?
+Possible Research Questions:
+What makes a song popular?
+  -Look at the various correlations between song position and variable values relative to the mean
+  -
   
-College
-  Analyze salaries by major/school location
-  https://www.kaggle.com/wsj/college-salaries 
-
- 
-```{r}
-
-```
 
   
