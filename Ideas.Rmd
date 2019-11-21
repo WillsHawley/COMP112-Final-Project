@@ -20,8 +20,10 @@ https://join.slack.com/t/data-science-gang/shared_invite/enQtODEzMDY5MzY4OTMxLTd
 
 Possible Research Questions:
 What makes a song popular?
-  -Look at the various correlations between song position and variable values relative to the mean
-  -
+  -Use the big spotiy dataset to compare the average values of the overall data and the top100 data
+  -Both datasets have very similar variables
+  -Top100 doesn't have the popularity trait 
+  
   
 
   
