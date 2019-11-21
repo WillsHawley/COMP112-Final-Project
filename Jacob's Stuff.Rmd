@@ -1,0 +1,17 @@
+---
+title: "Jacob's Stuff"
+author: "Jacob Kresnicka"
+date: "11/20/2019"
+output: html_document
+---
+
+```{r}
+Spotify_Big %>%
+  group_by(genre) %>%
+  summarize(averagedanceability = mean(danceability)) %>%
+  arrange(desc(averagedanceability)) %>%
+  ggplot(aes(x=fct_reorder(genre,averagedanceability,mean),
+             y=averagedanceability)) +
+  geom_col() +
+  coord_flip()
+```
