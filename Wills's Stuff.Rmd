@@ -80,11 +80,29 @@ Spotify_Master %>%
   geom_histogram(aes(x=liveness))
 ```
 ```{r}
-Speechiness_by_genre<-Spotify_Big %>% 
+Spotify_Big %>% 
   group_by(genre) %>% 
-  summarize(avg_speechiness=mean(speechiness))
-Speechiness_by_genre %>% 
+  summarize(avg_speechiness=mean(speechiness)) %>% 
+  arrange(avg_speechiness)
+
+```
+```{r}
+Spotify_Big %>% 
+  filter(genre=="Anime") %>% 
   ggplot() +
-  geom_boxplot(aes(x=genre,y=avg_speechiness))
+  geom_histogram(aes(x=valence),binwidth=.03)
+Spotify_Big %>% 
+  filter(genre=="World") %>% 
+  ggplot() +
+  geom_histogram(aes(x=valence),binwidth=.03)
+Spotify_Big %>% 
+  filter(genre=="Rock") %>% 
+  ggplot() +
+  geom_histogram(aes(x=valence),binwidth=.03)
+Spotify_Big %>% 
+  filter(genre=="Soul") %>% 
+  ggplot() +
+  geom_histogram(aes(x=valence),binwidth=.03)
+Spotify
 ```
 
