@@ -12,6 +12,9 @@ Spotify_Big %>%
   arrange(desc(averagedanceability)) %>%
   ggplot(aes(x=fct_reorder(genre,averagedanceability,mean),
              y=averagedanceability)) +
-  geom_col() +
-  coord_flip()
+  geom_col(color = "black", fill = "green") +
+  coord_flip() +
+  theme_minimal() +
+  labs(x="Genre of Music", y = "Average Dancibility Ratings",
+       title = "Average Dancibility Ratings For Genre")
 ```
