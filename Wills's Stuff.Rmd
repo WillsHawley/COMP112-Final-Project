@@ -17,9 +17,6 @@ Spotify_Big <- read_csv("SpotifyFeatures.csv")
 
 Spotify_Master<-Spotify_Top_2017 %>% 
   bind_rows(Spotify_Top_2018)
-view(Spotify_Master)
-
-view(Spotify_Big)
 ```
 What makes a hit song?
 
