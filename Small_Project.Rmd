@@ -10,6 +10,7 @@ library(dplyr)
 library(ggplot2)
 ```
 
+<<<<<<< HEAD
 ```{r,echo=FALSE}
 Spotify_Top_2017 <- read_csv("Spotify/Spotify Top 2017.csv")
 Spotify_Top_2018 <- read_csv("Spotify/Spotify Top 2018.csv")
@@ -85,3 +86,8 @@ Spotify_Big %>%
 ```
 
  
+=======
+#### Link to Our App
+
+[ProjectAppLink](https://jacobkresnicka.shinyapps.io/FinalProjectAppV1/)
+>>>>>>> 353329023f77bcc47ad17965bb26f6df82436909
