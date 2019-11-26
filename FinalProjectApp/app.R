@@ -22,7 +22,7 @@ server <- function(input, output){
     Spotify_Big %>%
       filter(genre == input$genre) %>%
       ggplot() +
-      geom_bin2d(aes(y=popularity, x= input$xaxis)) +
+      geom_hex(aes(y=popularity, x= input$xaxis)) +
       labs(y="Popularity", x="X-Variable Choice", fill = "Distribution of Popularity")
     })
 }
