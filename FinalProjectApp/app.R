@@ -16,7 +16,7 @@ ui <- fluidPage(
                 choices = list("danceability", "acousticness", "duration_ms",
                                "energy", "instrumentalness", "liveness",
                                "loudness", "speechiness", "tempo", "valence")),
-    plotOutput(outputId = "spotplot"))
+    plotOutput(outputId = "spotplot", width = "100%"))
 
 
 server <- function(input, output){
@@ -26,7 +26,7 @@ server <- function(input, output){
       ggplot(aes(y=popularity)) +
       geom_hex(aes_string(x=input$xaxis)) +
       labs(y="Popularity", fill = "Distribution of Popularity")
-    })
+    }, height = 600, width = 700)
 }
 
 
