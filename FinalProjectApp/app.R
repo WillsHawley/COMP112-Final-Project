@@ -23,8 +23,9 @@ server <- function(input, output){
   output$spotplot <- renderPlot({
     Spotify_Big %>%
       filter(genre == input$genre) %>%
+      select(one_of(c("input$xaxis", "popularity"))) %>%
       ggplot() +
-      geom_hex(aes(y=popularity, x= input$xaxis)) +
+      geom_hex(aes(y=popularity)) +
       labs(y="Popularity", x="Danceability", fill = "Distribution of Popularity")
     })
 }
