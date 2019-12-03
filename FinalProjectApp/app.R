@@ -14,7 +14,7 @@ ui <- fluidPage(
                                "Comedy", "Opera", "Movie", "A Capella")),
     selectInput(inputId = "xaxis", label = "Measure of Music",
                 choices = list("danceability", "acousticness", "duration_ms",
-                               "energy", "intrumentalness", "liveness",
+                               "energy", "instrumentalness", "liveness",
                                "loudness", "speechiness", "tempo", "valence")),
     plotOutput(outputId = "spotplot"))
 
