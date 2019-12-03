@@ -25,7 +25,7 @@ server <- function(input, output){
       filter(genre == input$genre) %>%
       select(one_of(c("input$xaxis", "popularity"))) %>%
       ggplot() +
-      geom_hex(aes(y=popularity)) +
+      geom_hex(aes(y=popularity, x=)) +
       labs(y="Popularity", x="Danceability", fill = "Distribution of Popularity")
     })
 }
