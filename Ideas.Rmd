@@ -23,6 +23,8 @@ What makes a song popular?
   -Use the big spotiy dataset to compare the average values of the overall data and the top100 data
   -Both datasets have very similar variables
   -Top100 doesn't have the popularity trait 
+
+  
   
   
 

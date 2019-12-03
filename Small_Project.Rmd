@@ -1,0 +1,93 @@
+---
+title: "Spotify Analysis"
+author: "Alex, Lucy, Jacob, Wills"
+date: "11/20/2019"
+output: html_document
+---
+```{r,echo=FALSE}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+```
+
+<<<<<<< HEAD
+```{r,echo=FALSE}
+Spotify_Top_2017 <- read_csv("Spotify/Spotify Top 2017.csv")
+Spotify_Top_2018 <- read_csv("Spotify/Spotify Top 2018.csv")
+Spotify_Big <- read_csv("SpotifyFeatures.csv")
+
+Spotify_Master<-Spotify_Top_2017 %>% 
+  bind_rows(Spotify_Top_2018)
+```
+
+### What makes a hit song?
+
+ + We are examining the "SpotifyFeatures" dataset published by Zadeen Hamidani
+ 
+ + There are a total of 232,725 observations in this data set
+
+ + Examines the top 10,000 songs from each of the 26 genres listed by Spotify
+ 
+ + There are 16 values with which each song is analyzed
+ 
+```{r,echo=FALSE}
+summary(Spotify_Big)
+```
+
+```{r,echo=FALSE}
+Spotify_Big %>% 
+  ggplot() +
+  geom_histogram(aes(x=loudness),bins=100) +
+  theme_minimal()+
+  labs(x="Loudness",title="Distribution of Loudness")
+Spotify_Big %>% 
+  ggplot() +
+  geom_histogram(aes(x=duration_ms),bins=1000) +
+  theme_minimal() +
+  labs(x="Song Duration (Milliseconds)",title="Distribution of Song Duration")
+Spotify_Big %>% 
+  ggplot() +
+  geom_histogram(aes(x=energy),bins=100) +
+  theme_minimal() +
+  labs(x="Energy",title="Distribution of Energy")
+```
+
+
+```{r,echo=FALSE,fig.width=10}
+Spotify_Big %>% 
+  ggplot() +
+  geom_histogram(aes(x=valence),binwidth=0.1) +
+  facet_wrap(~genre) +
+  theme_minimal() +
+  labs(x="Valence",y="Count",title="Distribution of Valence by genre")
+```
+
+```{r,echo=FALSE}
+Spotify_Big %>% 
+  filter(genre=="Alternative") %>% 
+  ggplot() +
+  geom_hex(aes(x=valence,y=popularity)) +
+  labs(title="Alternative") +
+  theme_minimal() 
+```
+```{r,echo=FALSE}
+Spotify_Big %>% 
+  filter(genre=="Anime") %>% 
+  ggplot() +
+  geom_hex(aes(x=valence,y=popularity)) +
+  labs(title="Anime") +
+  theme_minimal()
+Spotify_Big %>% 
+  filter(genre=="R&B") %>% 
+  ggplot() +
+  geom_hex(aes(x=valence,y=popularity)) +
+  labs(title="R&B") +
+  theme_minimal()
+```
+
+ 
+=======
+#### Link to Our App
+
+[ProjectAppLink](https://jacobkresnicka.shinyapps.io/FinalProjectAppV1/)
+>>>>>>> 353329023f77bcc47ad17965bb26f6df82436909
