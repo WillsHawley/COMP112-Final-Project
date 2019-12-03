@@ -131,4 +131,58 @@ Spotify_Big %>%
   theme_minimal() +
   labs(x="Valence",y="Count",title="Distribution of Valence by genre")
 ```
+```{r,echo=FALSE,fig.width=10}
+Spotify_Big %>% 
+  ggplot() +
+  geom_histogram(aes(x=energy),binwidth=0.1) +
+  facet_wrap(~genre) +
+  theme_minimal() +
+  labs(x="Valence",y="Count",title="Distribution of Valence by genre")
+```
+```{r,fig.width=10}
+Spotify_Big %>% 
+  ggplot() +
+  geom_hex(aes(x=energy,y=popularity)) +
+  facet_wrap(~genre) +
+  theme_minimal()
+```
+ 
+*** Look at Opera, Hip-Hop, Ska, Soundtrack, Classical
+ 
+ 
+```{r,fig.width=10}
+Spotify_Big %>% 
+  ggplot() +
+  geom_hex(aes(x=tempo,y=popularity)) +
+  facet_wrap(~genre) +
+  theme_minimal()
+```
+
+*** Look at Children's music, Comedy, Reggaeton, Soundtrack, Jazz, 
+
+```{r,fig.width=10}
+Spotify_Big %>% 
+  ggplot() +
+  geom_hex(aes(x=liveness,y=popularity)) +
+  facet_wrap(~genre) +
+  theme_minimal()
+```
+
+
+```{r}
+Mean_Variables<-Spotify_Big %>% 
+  group_by(genre) %>% 
+  summarize(avg_popularity=mean(popularity),
+            avg_acousticness=mean(acousticness),
+            avg_danceability=mean(danceability),
+            avg_duration=mean(duration_ms),
+            avg_energy=mean(energy),
+            avg_instrumentalness=mean(instrumentalness),
+            avg_liveness=mean(liveness),
+            avg_loudness=mean(loudness),
+            avg_speechiness=mean(speechiness),
+            avg_tempo=mean(tempo),
+            avg_valence=mean(valence))
+Mean_Variables
+```
 
