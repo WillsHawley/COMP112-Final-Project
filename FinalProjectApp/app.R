@@ -12,8 +12,10 @@ ui <- fluidPage(
                                "Reggaeton", "Reggae", "World", "Blues",
                                "Soundtrack", "Classical", "Ska", "Anime",
                                "Comedy", "Opera", "Movie", "A Capella")),
-    selectInput(inputId = "xaxis", label = "X-Variable", 
-                choices = list("valence", "danceability")),
+    selectInput(inputId = "xaxis", label = "Measure of Music",
+                choices = list("danceability", "acousticness", "duration_ms",
+                               "energy", "instrumentalness", "liveness",
+                               "loudness", "speechiness", "tempo", "valence")),
     plotOutput(outputId = "spotplot"))
 
 
@@ -21,9 +23,9 @@ server <- function(input, output){
   output$spotplot <- renderPlot({
     Spotify_Big %>%
       filter(genre == input$genre) %>%
-      ggplot() +
-      geom_bin2d(aes(y=popularity, x= input$xaxis)) +
-      labs(y="Popularity", x="X-Variable Choice", fill = "Distribution of Popularity")
+      ggplot(aes(y=popularity)) +
+      geom_hex(aes_string(x=input$xaxis)) +
+      labs(y="Popularity", fill = "Distribution of Popularity")
     })
 }
 
