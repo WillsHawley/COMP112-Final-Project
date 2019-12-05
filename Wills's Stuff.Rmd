@@ -186,3 +186,29 @@ Mean_Variables<-Spotify_Big %>%
 Mean_Variables
 ```
 
+```{r,fig.width=18}
+Spotify_Big %>% 
+  ggplot() +
+  geom_boxplot(aes(x=genre,y=popularity))
+```
+
+```{r,fig.width=18}
+Spotify_Big %>% 
+  ggplot() +
+  geom_boxplot(aes(x=fct_reorder(genre,.x=danceability,.fun=median),
+                   y=danceability))
+  
+```
+```{r,fig.width=18}
+Spotify_Big %>% 
+  ggplot() +
+  geom_boxplot(aes(x=genre,y=duration_ms))
+```
+```{r}
+Spotify_Big %>%
+  ggplot() +
+  geom_jitter(aes(x=danceability,y=popularity)) +
+  geom_smooth(aes(x=danceability,y=popularity),method=lm,color="red") +
+  facet_wrap(~genre)
+```
+
