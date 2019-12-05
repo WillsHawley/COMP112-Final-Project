@@ -2,6 +2,7 @@
 library(shiny)
 library(tidyverse)
 library(ggthemes)
+library(ggplot2)
 Spotify_Big <- read_csv("SpotifyFeatures.csv") 
 
 ui <- fluidPage(
@@ -27,7 +28,8 @@ server <- function(input, output){
       ggplot(aes(y=popularity)) +
       geom_hex(aes_string(x=input$xaxis)) +
       labs(y="Popularity", fill = "Distribution of Popularity") +
-      theme_clean()
+      theme_clean() +
+      scale_fill_viridis_c()
     }, height = 700, width = 800)
 }
 
