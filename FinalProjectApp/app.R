@@ -2,7 +2,7 @@
 library(shiny)
 library(tidyverse)
 library(ggthemes)
-Spotify_Big <- read_csv("SpotifyFeatures.csv")
+Spotify_Big <- read_csv("SpotifyFeatures.csv") 
 
 ui <- fluidPage(
     titlePanel("Spotify Data App"),
