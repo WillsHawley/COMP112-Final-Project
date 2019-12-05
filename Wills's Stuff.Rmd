@@ -192,12 +192,14 @@ Spotify_Big %>%
   geom_boxplot(aes(x=genre,y=popularity))
 ```
 
-```{r,fig.width=18}
+```{r,fig.height=8}
 Spotify_Big %>% 
   ggplot() +
   geom_boxplot(aes(x=fct_reorder(genre,.x=danceability,.fun=median),
-                   y=danceability))
-  
+                   y=danceability,fill=genre)) +
+  coord_flip() +
+  labs(x="Genre",y="Danceability") +
+  theme_minimal()
 ```
 ```{r,fig.width=18}
 Spotify_Big %>% 
