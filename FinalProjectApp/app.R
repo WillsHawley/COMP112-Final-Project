@@ -57,8 +57,10 @@ server <- function(input, output){
       ggplot(aes(x=genre, fill = genre)) +
       geom_boxplot(aes_string(
                        y=input$xaxis1
-                       ))
-  })
+                       )) +
+      labs(x="Genre", fill = "Genre Color") +
+      coord_flip() 
+  }, height = 700, width = 800)
 }
 
 
