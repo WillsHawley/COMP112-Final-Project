@@ -4,14 +4,13 @@ author: "Alex, Lucy, Jacob, Wills"
 date: "11/20/2019"
 output: html_document
 ---
-```{r,echo=FALSE}
+```{r,message=FALSE}
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
 ```
 
-<<<<<<< HEAD
-```{r,echo=FALSE}
+```{r,message=FALSE}
 Spotify_Top_2017 <- read_csv("Spotify/Spotify Top 2017.csv")
 Spotify_Top_2018 <- read_csv("Spotify/Spotify Top 2018.csv")
 Spotify_Big <- read_csv("SpotifyFeatures.csv")
@@ -70,6 +69,7 @@ Spotify_Big %>%
   labs(title="Alternative") +
   theme_minimal() 
 ```
+
 ```{r,echo=FALSE}
 Spotify_Big %>% 
   filter(genre=="Anime") %>% 
@@ -85,8 +85,7 @@ Spotify_Big %>%
   theme_minimal()
 ```
 
- 
-=======
+
 #### Link to Our App
 
 [ProjectAppLink](https://jacobkresnicka.shinyapps.io/FinalProjectAppV1/)

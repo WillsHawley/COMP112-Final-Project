@@ -1,5 +1,5 @@
 ---
-title: "Wills Stuff"
+title: "Wills's Stuff"
 author: "Wills Hawley"
 date: "11/12/2019"
 output: html_document
@@ -242,6 +242,9 @@ Spotify_Big %>%
   theme_minimal()
 ```
 
-
+```{r}
+Spotify_Big %>% 
+  
+```
 
 
