@@ -65,7 +65,8 @@ server <- function(input, output){
                        y=input$xaxis1
                        )) +
       labs(x="Genre", fill = "Genre Color") +
-      coord_flip() 
+      coord_flip() +
+      guides(fill = "none")
   }, height = 700, width = 800)
 }
 
