@@ -15,18 +15,24 @@ library(shiny)
 library(ggthemes)
 ```
 
-***Spotify Data
+###Spotify Data
 
-```{r, message=FALSE}
+##What effects the popularity of music?
+
+* We examined the "Spotify Track DB" dataset published by Zaheen Hamidani on Kaggle.
+
+*This dataset included a total of 232,725 tracks, sampled from the  26 genres on Spotify.
+
+*
+
+```{r, echo=FALSE}
 library(shiny)
 library(tidyverse)
 library(ggthemes)
 library(ggplot2)
-
 Spotify_Big <- read_csv("SpotifyFeatures.csv") 
-
 shinyApp(
-ui = fluidPage(
+ui <- fluidPage(
   navbarPage("Spotify Data Analysis App",
              tabPanel("Plot 1",
   titlePanel("Geometric Hexagon Plot"),
@@ -64,10 +70,10 @@ ui = fluidPage(
                            mainPanel(plotOutput(outputId = "boxplot")))
                                         )
     )
-  ),
+  )
 
 
-server = function(input, output){
+server <- function(input, output){
   output$spotplot <- renderPlot({
     Spotify_Big %>%
       filter(genre == input$genre) %>%
@@ -89,9 +95,7 @@ server = function(input, output){
       coord_flip() +
       guides(fill = "none")
   }, height = 700, width = 800)
-}, options = list(height = 400, width = 300)
-)
-
+})
 
 ```
 
