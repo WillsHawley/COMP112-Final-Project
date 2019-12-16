@@ -89,7 +89,7 @@ server = function(input, output){
       coord_flip() +
       guides(fill = "none")
   }, height = 700, width = 800)
-}, options = list(height = 400, width = 300)
+}, options = list(height = 1100, width = 1300)
 )
 
 
