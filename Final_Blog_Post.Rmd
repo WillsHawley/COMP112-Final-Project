@@ -34,11 +34,14 @@ Spotify_Master<-Spotify_Top_2017 %>%
 
 * This dataset included a total of 232,725 tracks, sampled from the  26 genres on Spotify.
 
+### Variables 
+
+* 
+
 ```{r,layout="1-body-outset"}
 library(knitr)
 library(rmarkdown)
 Mean_Variables<-Spotify_Big %>% 
-  group_by(genre) %>% 
   summarize("Average Popularity"=mean(popularity),
             "Average Acousticness"=mean(acousticness),
             "Average Danceability"=mean(danceability),
@@ -54,7 +57,17 @@ kable(Mean_Variables)
 ```
 
 
+* The above table provides a mean value for the numerical variables we are examining. This excludes variables such as mode, which is a categorical variable. 
 
+```{r,fig.height=8,fig.width=12}
+Spotify_Big %>% 
+  ggplot() +
+  geom_boxplot(aes(x=fct_reorder(genre,.x=popularity,.fun=median),
+                   y=popularity,fill=genre)) +
+  coord_flip() +
+  labs(x="Genre",y="Popularity") +
+  theme_minimal()
+```
 
 
 
