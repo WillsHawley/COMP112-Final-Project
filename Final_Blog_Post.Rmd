@@ -127,7 +127,7 @@ server <- function(input, output){
       filter(genre == input$genre) %>%
       ggplot(aes(y=popularity)) +
       geom_hex(aes_string(x=input$xaxis)) +
-      labs(y="Popularity", fill = "Distribution of Popularity") +
+      labs(y="Popularity", fill = "Distribution of Songs") +
       theme_clean() +
       scale_fill_viridis_c()
     }, height = 700, width = 800)
@@ -143,10 +143,11 @@ server <- function(input, output){
       coord_flip() +
       guides(fill = "none")
   }, height = 700, width = 800)
-}, options = list(height = 1100, width = 1400)
+}, options = list(height = 1100, width = 1500)
 )
-
-
-
 ```
 
+* On Plot 1 you can see that there is a Geometric Hexagonal plot
+  * An example comparison can be made between the Soul and Electronic genre
+      *Danceability of the majority of songs is about the same, while the Energy 
+      rating is higher for the Electronic genre
