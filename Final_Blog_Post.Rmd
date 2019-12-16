@@ -70,7 +70,7 @@ ui <- fluidPage(
                            mainPanel(plotOutput(outputId = "boxplot")))
                                         )
     )
-  )
+  ),
 
 
 server <- function(input, output){
@@ -95,13 +95,10 @@ server <- function(input, output){
       coord_flip() +
       guides(fill = "none")
   }, height = 700, width = 800)
-<<<<<<< HEAD
-}, options = list(height = 1100, width = 1300)
+}, options = list(height = 1100, width = 1400)
 )
 
-=======
-})
->>>>>>> ecec4b8fac363b073c7d3589f5df16f90fb35fa4
+
 
 ```
 
