@@ -25,7 +25,7 @@ library(ggthemes)
 
 *
 
-```{r, echo=FALSE}
+```{r, message=FALSE}
 library(shiny)
 library(tidyverse)
 library(ggthemes)
