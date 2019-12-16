@@ -1,12 +1,11 @@
 ---
-title: "Final_Blog_Post"
-author: "Wills "
-date: "12/10/2019"
+title: "Final Blog Post"
+author: "Alex McCreight, Lucy Grochulska, Jacob Kresnicka, Wills Hawley"
 output: html_document
 runtime: shiny
 ---
 
-```{r setup, include=FALSE}
+```{r setup,message=FALSE,include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(dplyr)
@@ -14,18 +13,52 @@ library(ggplot2)
 library(shiny)
 library(ggthemes)
 ```
+```{r,message=FALSE}
+Spotify_Top_2017 <- read_csv("Spotify/Spotify Top 2017.csv")
+Spotify_Top_2018 <- read_csv("Spotify/Spotify Top 2018.csv")
+Spotify_Big <- read_csv("SpotifyFeatures.csv")
 
-###Spotify Data
+Spotify_Master<-Spotify_Top_2017 %>% 
+  bind_rows(Spotify_Top_2018)
+```
 
-##What effects the popularity of music?
+
+# Spotify Data
+
+### What effects the popularity of music?
+
+
+### Overview 
 
 * We examined the "Spotify Track DB" dataset published by Zaheen Hamidani on Kaggle.
 
-*This dataset included a total of 232,725 tracks, sampled from the  26 genres on Spotify.
+* This dataset included a total of 232,725 tracks, sampled from the  26 genres on Spotify.
 
-*
+```{r,layout="1-body-outset"}
+library(knitr)
+library(rmarkdown)
+Mean_Variables<-Spotify_Big %>% 
+  group_by(genre) %>% 
+  summarize("Average Popularity"=mean(popularity),
+            "Average Acousticness"=mean(acousticness),
+            "Average Danceability"=mean(danceability),
+            "Average Duration"=mean(duration_ms),
+            "Average Energy"=mean(energy),
+            "Average Instrumentalness"=mean(instrumentalness),
+            "Average Liveness"=mean(liveness),
+            "Average Loudness"=mean(loudness),
+            "Average Speechiness"=mean(speechiness),
+            "Average Tempo"=mean(tempo),
+            "Average Valence"=mean(valence))
+kable(Mean_Variables)
+```
 
-```{r, message=FALSE}
+
+
+
+
+
+```{r, echo=FALSE,message=FALSE}
 library(shiny)
 library(tidyverse)
 library(ggthemes)
