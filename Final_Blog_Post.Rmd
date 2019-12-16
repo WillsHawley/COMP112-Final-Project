@@ -1,0 +1,93 @@
+---
+title: "Final_Blog_Post"
+author: "Wills "
+date: "12/10/2019"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(shiny)
+library(ggthemes)
+```
+
+***Spotify Data
+
+```{r, echo=FALSE}
+library(shiny)
+library(tidyverse)
+library(ggthemes)
+library(ggplot2)
+Spotify_Big <- read_csv("SpotifyFeatures.csv") 
+shinyApp(
+ui <- fluidPage(
+  navbarPage("Spotify Data Analysis App",
+             tabPanel("Plot 1",
+  titlePanel("Geometric Hexagon Plot"),
+    sidebarLayout(
+      sidebarPanel(
+        selectInput(inputId = "genre", label = "Genre of Music",
+                              choices = list("A Capella", "Alternative", "Anime", "Blues", "Children's Music", "Classical", "Comedy",
+                                             "Country", "Dance", "Electronic", "Folk", "Hip-Hop", "Indie", "Jazz", "Movie", "Opera",
+                                             "Pop", "R&B", "Rap", "Reggae", "Reggaeton", "Rock", "Ska", "Soul", "Soundtrack", "World")),
+                  selectInput(inputId = "xaxis", label = "Measure of Music",
+                              choices = list(Danceability = "danceability", Acousticness = "acousticness",
+                                             `Duration in Milliseconds` = "duration_ms",
+                                             Energy = "energy", Intrumentalness = "instrumentalness",
+                                             Liveness = "liveness",
+                                             Loudness = "loudness", Speechiness = "speechiness",
+                                             Tempo = "tempo", Valence = "valence")),
+                  submitButton(text="Apply Changes")),
+    mainPanel(plotOutput(outputId = "spotplot")))),
+    tabPanel("Plot 2",
+             titlePanel("Boxplot Distribution"),
+             sidebarLayout(
+               sidebarPanel(
+                 checkboxGroupInput(inputId = "genre1", label = "Genre of Music",
+                                                    choices = list("A Capella", "Alternative", "Anime", "Blues", "Children's Music", "Classical", "Comedy",
+                                                                   "Country", "Dance", "Electronic", "Folk", "Hip-Hop", "Indie", "Jazz", "Movie", "Opera",
+                                                                   "Pop", "R&B", "Rap", "Reggae", "Reggaeton", "Rock", "Ska", "Soul", "Soundtrack", "World")),
+                                        selectInput(inputId = "xaxis1", label = "Measure of Music",
+                                                    choices = list(Danceability = "danceability", Acousticness = "acousticness",
+                                                                   `Duration in Milliseconds` = "duration_ms",
+                                                                   Energy = "energy", Intrumentalness = "instrumentalness",
+                                                                   Liveness = "liveness",
+                                                                   Loudness = "loudness", Speechiness = "speechiness",
+                                                                   Tempo = "tempo", Valence = "valence")),
+                                        submitButton(text="Apply Changes")),
+                           mainPanel(plotOutput(outputId = "boxplot")))
+                                        )
+    )
+  )
+
+
+server = function(input, output){
+  output$spotplot <- renderPlot({
+    Spotify_Big %>%
+      filter(genre == input$genre) %>%
+      ggplot(aes(y=popularity)) +
+      geom_hex(aes_string(x=input$xaxis)) +
+      labs(y="Popularity", fill = "Distribution of Popularity") +
+      theme_clean() +
+      scale_fill_viridis_c()
+    }, height = 700, width = 800)
+  
+  output$boxplot <- renderPlot({
+    Spotify_Big %>%
+      filter(genre %in% input$genre1) %>%
+      ggplot(aes(x=genre, fill = genre)) +
+      geom_boxplot(aes_string(
+                       y=input$xaxis1
+                       )) +
+      labs(x="Genre", fill = "Genre Color") +
+      coord_flip() +
+      guides(fill = "none")
+  }, height = 700, width = 800)
+})
+
+```
+

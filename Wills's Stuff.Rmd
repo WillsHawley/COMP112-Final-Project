@@ -172,7 +172,7 @@ Spotify_Big %>%
 ```{r}
 Mean_Variables<-Spotify_Big %>% 
   group_by(genre) %>% 
-  summarize(avg_popularity=mean(popularity),
+  summarize("Average Popularity"=mean(popularity),
             avg_acousticness=mean(acousticness),
             avg_danceability=mean(danceability),
             avg_duration=mean(duration_ms),
@@ -219,7 +219,7 @@ Spotify_Big %>%
   geom_boxplot(aes(x=fct_reorder(genre,.x=valence,.fun=median),
                    y=valence,fill=genre)) +
   coord_flip() +
-  labs(x="Genre",y="Valence") +
+  labs(x="Valence",y="Genre") +
   theme_minimal()
 ```
 ```{r,fig.height=8}
