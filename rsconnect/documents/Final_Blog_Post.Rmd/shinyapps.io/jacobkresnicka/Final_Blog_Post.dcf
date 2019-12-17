@@ -1,0 +1,12 @@
+name: Final_Blog_Post
+title: Final_Blog_Post
+username:
+account: jacobkresnicka
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1607529
+bundleId: 2676148
+url: https://jacobkresnicka.shinyapps.io/Final_Blog_Post/
+when: 1576607372.23154
+asMultiple: FALSE
+asStatic: FALSE
