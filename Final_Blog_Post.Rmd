@@ -110,8 +110,20 @@ Spotify_Big %>%
   
 ```
 
-* Here we see that there is major variability based on the genre. Clearly, there are more popular genres than others 
+* Here we see that there is major variability based on the genre. Clearly, there are more popular genres than others. We used plots such as this when designing our app in order to identify the best ways to display the information we wanted to convey. 
 
+```{r,fig.width=7,fig.height=5}
+Spotify_Big %>% 
+  filter(genre=="Alternative") %>% 
+  ggplot() +
+  geom_hex(aes(x=valence,y=popularity)) +
+  labs(title="Alternative") +
+  theme_minimal() 
+```
+
+* This is the second kind of data we wanted to display. In looking at a two variable comparison by genre, we were more able to look at trends within given genres, rather than simply relying on single variable comparissons by genre. 
+
+### The App
 
 ```{r, echo=FALSE,message=FALSE}
 library(shiny)
