@@ -219,4 +219,4 @@ server <- function(input, output){
 
 ### Conclusion
 
-
+It was difficult to prove any causual relationship because the data was difficult to use and our inexperience with statistics. So we had to find a way to display some sort of relationship in a clear and concise way. Using the hex plots and box plots we found a good way to show several different aspects of the data. When experimenting with the data we were able to pick out different relationships using our plots in conjunction. We wanted to know what factors affect the popularity of a song. However, there are other factors that may influence popularity that aren't in the data set that are worth taking into account when trying to infer effects on popularity. These include popularity of the artist, and genre in current culture, and the lyrics in the song. Althoguh, after completing our project we discovered that the variables that affect popularity are the valence and the energy of the song. 
