@@ -188,5 +188,5 @@ server <- function(input, output){
 
   * An example comparison can be made between the Soul and Electronic genre
   
-      *Danceability of the majority of songs is about the same, while the Energy 
-      rating is higher for the Electronic genre
+      * Danceability of the majority of songs is about the same, while the Energy
+        rating is higher for the Electronic genre
