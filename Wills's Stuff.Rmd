@@ -8,6 +8,7 @@ output: html_document
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
+library(DataCombine)
 ```
 
 ```{r}
@@ -17,6 +18,7 @@ Spotify_Big <- read_csv("SpotifyFeatures.csv")
 
 Spotify_Master<-Spotify_Top_2017 %>% 
   bind_rows(Spotify_Top_2018)
+View(Spotify_Big)
 ```
 What makes a hit song?
 
@@ -242,6 +244,22 @@ Spotify_Big %>%
   theme_minimal()
 ```
 
+```{r}
+Spotify_Big %>% 
+  filter(genre=="Children's Music")
+```
 
+
+```{r}
+replace(Spotify_Big,"Children’s Music","Children's Music")
+
+Spotify_Big %>% 
+  filter(genre=="Children's Music")
+```
+
+```{r}
+Replaces <- data.frame(from= "Children’s Music",to="Children's Music")
+FindReplace(data=Spotify_Big, Var="genre", replaceData= Replaces, from = "from", to = "to", exact = TRUE, vector = FALSE)
+```
 
 
