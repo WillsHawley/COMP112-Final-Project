@@ -55,6 +55,13 @@ Songs that are being played frequently now will have a higher popularity than so
 
 * liveness = Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. A value above 0.8 provides strong likelihood that the track is live. 
 
+```{r,include=FALSE}
+Spotify_Big %>% 
+  ggplot() +
+  geom_histogram(aes(x=liveness))
+```
+
+
 * Loudness = The overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track. Loudness is the quality of a sound that is the primary psychological correlate of physical strength (amplitude). Values typical range between -60 and 0 db.
 
 * speechiness = Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (talk show, audio book), the closer to 1.0 the  value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, including rap. Values below 0.33 most likely represent music. 
@@ -121,9 +128,19 @@ Spotify_Big %>%
   theme_minimal() 
 ```
 
-* This is the second kind of data we wanted to display. In looking at a two variable comparison by genre, we were more able to look at trends within given genres, rather than simply relying on single variable comparissons by genre. 
+* This is the second kind of data we wanted to display. In looking at a two variable comparison by genre, we were more able to look at trends within given genres, rather than simply relying on single variable comparisons by genre. 
 
 ### The App
+
+* On Plot 1 we utilized a Hex Plot
+  
+  * This plot breaks down the variables within the genre. For example, we look at Valence to see how positve and negative songs are. Across the 3 most popular genres the valence distribution is spread but the popularity remains about the same area. This plot emphasize a more specific analysis of the distribution of songs within a genre.
+
+* On Plot 2 we utilized a Boxplot
+
+  * The top 3 genres are Pop, Rock, and Rap. Songs in these genres on average are more popular. We can make a comparison between these three genres and the least popular genres Movie, Children's Music, and A Capella. Using the energy variable the top 3 genres have an energy of rating of 0.75 but the lesser 3 fall below 0.50. Our graphs pickup the trend showing the factors that might affect the popularity of a song.
+  
+* It is important that we included both of these plots because the Hexagonal plot provides a micro view of how variables are represented within a genre where as the Boxplot shows easier to read relationships between multiple genres given a measure of music.
 
 ```{r, echo=FALSE,message=FALSE}
 library(shiny)
@@ -199,12 +216,7 @@ server <- function(input, output){
 )
 ```
 
-* On Plot 1 we utilized a Hexagonal Plot
-  
-  * This plot breaks down the variables within the genre. For example, we look at Valence to see how positve and negative songs are. Across the 3 most popular genres the valence distribution is spread but the popularity remains about the same area. This plot emphasize a more specific analysis of the distribution of songs within a genre.
 
-* On Plot 2 we utilized a Boxplot
+### Conclusion
 
-  * The top 3 genres are Pop, Rock, and Rap. Songs in these genres on average are more popular. We can make a comparison between these three genres and the least popular genres Movie, Children's Music, and A Capella. Using the energy variable the top 3 genres have an energy of rating of 0.75 but the lesser 3 fall below 0.50. Our graphs pickup the trend showing the factors that might affect the popularity of a song.
-  
-* It is important that we included both of these plots because the Hexagonal plot provides a micro view of how variables are represented within a genre where as the Boxplot shows easier to read relationships between multiple genres given a measure of music.
+
