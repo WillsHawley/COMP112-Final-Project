@@ -187,9 +187,12 @@ server <- function(input, output){
 )
 ```
 
-* On Plot 1 you can see that there is a Geometric Hexagonal plot
-
-  * An example comparison can be made between the Soul and Electronic genre
+* On Plot 1 we utilized a Hexagonal Plot
   
-      * Danceability of the majority of songs is about the same, while the Energy
-        rating is higher for the Electronic genre
+  * This plot breaks down the variables within the genre. For example, we look at Valence to see how positve and negative songs are. Across the 3 most popular genres the valence distribution is spread but the popularity remains about the same area. This plot emphasize a more specific analysis of the distribution of songs within a genre.
+
+* On Plot 2 we utilized a Boxplot
+
+  * The top 3 genres are Pop, Rock, and Rap. Songs in these genres on average are more popular. We can make a comparison between these three genres and the least popular genres Movie, Children's Music, and A Capella. Using the energy variable the top 3 genres have an energy of rating of 0.75 but the lesser 3 fall below 0.50. Our graphs pickup the trend showing the factors that might affect the popularity of a song.
+  
+* It is important that we included both of these plots because the Hexagonal plot provides a micro view of how variables are represented within a genre where as the Boxplot shows easier to read relationships between multiple genres given a measure of music.
