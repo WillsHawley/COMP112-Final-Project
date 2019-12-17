@@ -13,10 +13,11 @@ library(ggplot2)
 library(shiny)
 library(ggthemes)
 ```
-```{r,message=FALSE}
+```{r,message=FALSE,include=FALSE}
 Spotify_Top_2017 <- read_csv("Spotify/Spotify Top 2017.csv")
 Spotify_Top_2018 <- read_csv("Spotify/Spotify Top 2018.csv")
 Spotify_Big <- read_csv("SpotifyFeatures.csv")
+replace(Spotify_Big,"Children’s Music","Children's Music")
 
 Spotify_Master<-Spotify_Top_2017 %>% 
   bind_rows(Spotify_Top_2018)
@@ -92,7 +93,7 @@ kable(Mean_Variables)
  
 * There is also the issue of the variables present in the dataset. Given that they are based on algorithms developed by Spotify and the publisher, they are not necessarily 100% accurate. This error has lead to some interesting discoveries, like a death metal song being categorized as children's music. This is not the case for the vast majority of observations, but is present nonetheless. 
 
-* 
+### Analysis
 
 ```{r,fig.height=8,fig.width=12}
 Spotify_Big %>% 
@@ -106,6 +107,7 @@ Spotify_Big %>%
   
 ```
 
+* Here we see that there is major variability based on 
 
 
 ```{r, echo=FALSE,message=FALSE}
