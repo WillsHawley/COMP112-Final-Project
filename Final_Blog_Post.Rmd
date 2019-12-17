@@ -12,6 +12,8 @@ library(dplyr)
 library(ggplot2)
 library(shiny)
 library(ggthemes)
+library(DataCombine)
+library(plyr)
 ```
 ```{r,message=FALSE,include=FALSE}
 Spotify_Top_2017 <- read_csv("Spotify/Spotify Top 2017.csv")
@@ -96,6 +98,7 @@ kable(Mean_Variables)
 ### Analysis
 
 ```{r,fig.height=8,fig.width=12}
+
 Spotify_Big %>% 
   ggplot() +
   geom_boxplot(aes(x=fct_reorder(genre,.x=popularity,.fun=median),
@@ -107,7 +110,7 @@ Spotify_Big %>%
   
 ```
 
-* Here we see that there is major variability based on 
+* Here we see that there is major variability based on the genre. Clearly, there are more popular genres than others 
 
 
 ```{r, echo=FALSE,message=FALSE}
