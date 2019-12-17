@@ -25,18 +25,48 @@ Spotify_Master<-Spotify_Top_2017 %>%
 
 # Spotify Data
 
+![](https://i.pinimg.com/originals/27/6f/27/276f273d11f8b9dbc0a9c55bb38ea8c6.gif)
+
 ### What effects the popularity of music?
 
 
 ### Overview 
 
-* We examined the "Spotify Track DB" dataset published by Zaheen Hamidani on Kaggle.
+We examined the "Spotify Track DB" dataset published by Zaheen Hamidani on Kaggle. This dataset included a total of 232,725 tracks, sampled from the  26 genres on Spotify. Each of these tracks has a total of 18 variables which we can use to compare and make observations. Our goal with the data was to examine what variables made an impact on popularity, with the hopes of uncovering the secret to making some sick bops. 
 
-* This dataset included a total of 232,725 tracks, sampled from the  26 genres on Spotify.
+### Key Variables 
 
-### Variables 
 
-* 
+* popularity = The popularity of the track. The value will be between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based on the total number of plays the track has had and how recent those plays are.
+Songs that are being played frequently now will have a higher popularity than songs that were played frequently in the past.
+
+* acousticness = A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic.
+
+* danceability = Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.
+
+* duration_ms =	The duration of the track in milliseconds.
+
+* energy = Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.
+
+* instrumentalness 
+
+* liveness = Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. A value above 0.8 provides strong likelihood that the track is live. 
+
+* Loudness 
+
+* speechiness = Speechiness detects the presence of spoken words in a track. The more exclusively speech-like the recording (talk show, audio book), the closer to 1.0 the  value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, including rap. Values below 0.33 most likely represent music. 
+
+* tempo = 
+
+* valence = 	A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. High valence =  positive (e.g. happy, cheerful, euphoric), while low valence = negative (e.g. sad, depressed, angry).
+
+* key = The estimated overall key of the track. E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on. If no key was detected, the value is -1.
+
+* mode = Mode indicates the modality (major or minor) of a track, Major is represented by 1 and minor is 0.
+
+* time_signature = An estimated overall time signature of a track. 
+
+The table below provides a mean value for the numerical variables we are examining. This excludes variables such as mode, which is a categorical variable. 
 
 ```{r,layout="1-body-outset"}
 library(knitr)
@@ -56,8 +86,13 @@ Mean_Variables<-Spotify_Big %>%
 kable(Mean_Variables)
 ```
 
+### Challenges 
 
-* The above table provides a mean value for the numerical variables we are examining. This excludes variables such as mode, which is a categorical variable. 
+* In attempting to make serious observations from this data, we encountered several issues. The first among these is the sheer size and scope of the data. There are 270,000+ observations and 18 variables with which to compare them. Any attempt at making visualizations will either convey a very small portion of the data, or be too cluttered to reasonably understand. 
+ 
+* There is also the issue of the variables present in the dataset. Given that they are based on algorithms developed by Spotify and the publisher, they are not necessarily 100% accurate. This error has lead to some interesting discoveries, like a death metal song being categorized as children's music. This is not the case for the vast majority of observations, but is present nonetheless. 
+
+* 
 
 ```{r,fig.height=8,fig.width=12}
 Spotify_Big %>% 
@@ -148,6 +183,8 @@ server <- function(input, output){
 ```
 
 * On Plot 1 you can see that there is a Geometric Hexagonal plot
+
   * An example comparison can be made between the Soul and Electronic genre
+  
       *Danceability of the majority of songs is about the same, while the Energy 
       rating is higher for the Electronic genre
